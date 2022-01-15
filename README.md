@@ -1,4 +1,4 @@
-# [#1589F0]Link-Finance
+# ![#1589F0]Link-Finance '#1589F0'
 The perfect destination for ideal financial literacy
 
 ## Purpose
