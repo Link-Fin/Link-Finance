@@ -11,3 +11,4 @@ Our mission is to create a central platform to bridge the gap of financial liter
 ## Team
 Luka Vukadinovic | https://github.com/V-Luka | Third year Software Engineering student<br>
 Abdul Mahmoud | https://github.com/Abdul-Mahmoud | Third year Software Engineering student<br>
+Austin Varghese | https://github.com/Austin-FV | Third year Software Engineering student<br>
