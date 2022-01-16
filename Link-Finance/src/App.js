@@ -3,25 +3,24 @@ import axios from 'axios'
 import './App.css';
 import SideNav from './components/sideNav/sideNav'
 import Coin from './components/coins/coin'
-import backToTopButton from './components/backToTopButton/backToTopButton';
+import ButtonBacktoTop from './components/buttonBackToTop/buttonBackToTop';
+import ButtonRefresh from './components/buttonRefresh/buttonRefresh'
 
 function App() {
-  const [coins, setCoins] = useState([])
+  const [topThreeCoins, setTopThreeCoins] = useState([])
 
   useEffect(() => {
     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=250&page=1&sparkline=false')
       .then(res => {
-        setCoins(res.data);
-        console.log(res.data);
+        setTopThreeCoins(res.data);
       }).catch(error => alert(error))
   }, []);
 
   return (
     <div className='background'>
       <SideNav />
-      <backToTopButton />
       <div className='coinList'>
-        {coins.map(coin => {
+        {topThreeCoins.map(coin => {
           return (
             <Coin
               key={coin.id}
@@ -33,6 +32,8 @@ function App() {
           )
         })}
       </div>
+      <ButtonBacktoTop />
+      <ButtonRefresh />
     </div>
   );
 }
