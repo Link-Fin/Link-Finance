@@ -3,6 +3,7 @@ import axios from 'axios'
 import './App.css';
 import SideNav from './components/sideNav/sideNav'
 import Coin from './components/coins/coin'
+import backToTopButton from './components/backToTopButton/backToTopButton';
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -18,17 +19,20 @@ function App() {
   return (
     <div className='background'>
       <SideNav />
-      {coins.map(coin => {
-        return (
-          <Coin
-            key={coin.id}
-            name={coin.name}
-            image={coin.image}
-            currentPrice={coin.current_price}
-            allTimeHigh={coin.ath}
-          />
-        )
-      })}
+      <backToTopButton />
+      <div className='coinList'>
+        {coins.map(coin => {
+          return (
+            <Coin
+              key={coin.id}
+              name={coin.name}
+              image={coin.image}
+              currentPrice={coin.current_price}
+              allTimeHigh={coin.ath}
+            />
+          )
+        })}
+      </div>
     </div>
   );
 }

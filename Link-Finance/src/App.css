@@ -11,3 +11,13 @@
   top: 5px;
   left: 5px;
 }
+
+.coinList {
+  display: grid;
+  padding-top: 45px;
+}
+@media screen {
+  .coinList{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
