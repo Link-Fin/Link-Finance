@@ -2,7 +2,6 @@ import React from "react";
 import { Drawer, ListItem, List, ListItemText } from "@mui/material";
 import "./sideNav.css";
 import Divider from '@mui/material/Divider';
-import { Toolbar } from "@mui/material";
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import CandlestickChartOutlinedIcon from '@mui/icons-material/CandlestickChartOutlined';
@@ -13,7 +12,7 @@ const drawerWidth = 240;
 
 function SideNav() {
     return (
-        <>
+        <div>
             <Drawer
                 sx={{
                     width: drawerWidth,
@@ -55,7 +54,7 @@ function SideNav() {
                     </ListItem>
                 </List>
             </Drawer>
-        </>
+        </div>
     );
 }
 

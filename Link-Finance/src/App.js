@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './App.css';
-import { Drawer } from '@mui/material';
 import SideNav from './components/sideNav/sideNav'
+import Coin from './components/coins/coin'
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -12,12 +12,20 @@ function App() {
       .then(res => {
         setCoins(res.data);
         console.log(res.data);
-      }).catch(error => alert('API URL is incorrect! Please file a ticket to the developers.'))
+      }).catch(error => alert(error))
   }, []);
 
   return (
     <div className='background'>
       <SideNav />
+      {coins.map(coin => {
+        return (
+          <Coin
+            name={coin.name}
+            image={coin.image}
+          />
+        )
+      })}
     </div>
   );
 }
