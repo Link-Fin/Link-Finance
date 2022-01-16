@@ -9,5 +9,5 @@ Link Finance will have sections designated for both Stocks and CryptoCurrency en
 Our mission is to create a central platform to bridge the gap of financial literacy due to the recent adoption of cryptocurrency. By doing this, we are creating a platform for users to find all their market information in one central location without searching the web for hours on recent news. We want to reduce time wasted when looking for market information such as recent news, market trends and charts.
 
 ## Team
-https://github.com/V-Luka Third year Software Engineering student
-https://github.com/Abdul-Mahmoud Third year Software Engineering student
+https://github.com/V-Luka Third year Software Engineering student<br>
+https://github.com/Abdul-Mahmoud Third year Software Engineering student<br>
