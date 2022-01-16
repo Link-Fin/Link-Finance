@@ -10,3 +10,4 @@ Our mission is to create a central platform to bridge the gap of financial liter
 
 ## Team
 https://github.com/V-Luka Third year Software Engineering student
+https://github.com/Abdul-Mahmoud Third year Software Engineering student
