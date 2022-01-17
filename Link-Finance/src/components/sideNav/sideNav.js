@@ -1,16 +1,18 @@
-import React from "react";
-import { Drawer, ListItem, List, ListItemText } from "@mui/material";
-import "./sideNav.css";
+import React from 'react';
+import { Drawer, ListItem, List, ListItemText } from '@mui/material';
+import Styled from 'styled-components';
 import Divider from '@mui/material/Divider';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import CandlestickChartOutlinedIcon from '@mui/icons-material/CandlestickChartOutlined';
 import PaidIcon from '@mui/icons-material/Paid';
 import InfoIcon from '@mui/icons-material/Info';
+import './sideNav.css';
 
 const drawerWidth = 240;
 
 function SideNav() {
+
     return (
         <div>
             <Drawer
@@ -20,14 +22,15 @@ function SideNav() {
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
                         boxSizing: 'border-box',
+                        backgroundColor: '#3D3176',
                     },
                 }}
                 variant="permanent"
                 anchor="left"
             >
-                <header className='websiteTitle' style={{ fontSize: '32px', paddingTop: '2%', paddingBottom: '2%' }}>Link Finance</header>
+                <header className='websiteTitle' style={{ fontSize: '32px', paddingTop: '2%', paddingBottom: '2%', color: 'white'}}>Link Finance</header>
                 <Divider />
-                <List>
+                <List className="sideNavList" style={{ color: 'white' }}>
                     <ListItem button key={'Home'}>
                         <ListItemIcon>
                             <HomeIcon style={{ color: 'blue' }} />
