@@ -14,7 +14,7 @@
 
 .coinList {
   display: grid;
-  padding-top: 45px;
+  padding-top: 48px;
 }
 @media screen {
   .coinList{

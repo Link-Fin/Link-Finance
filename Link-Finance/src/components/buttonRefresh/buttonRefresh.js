@@ -4,8 +4,12 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 
 const ButtonRefresh = () => {
 
+    const windowRefresh = () => {
+        window.location.reload(false);
+    }
+
     return (
-        <Button startIcon={<RefreshIcon />} style={{ position: 'fixed', top: '0px', left: '240px', }} />
+        <Button startIcon={<RefreshIcon style={{fontSize: '36px'}}/>} style={{ position: 'fixed', top: '0px', left: '240px', }} onClick={windowRefresh}/>
     )
 }
 

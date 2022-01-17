@@ -5,10 +5,10 @@ import './coin.css';
 const coin = ({ name, image, currentPrice, allTimeHigh }) => {
     return (
         <div className='usableBackground'>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 300 }}>
                 <CardMedia
                     component="img"
-                    height="140"
+                    height="100"
                     image={image}
                     alt="Crypto"
                 />
