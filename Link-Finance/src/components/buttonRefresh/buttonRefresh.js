@@ -4,6 +4,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 
 const ButtonRefresh = () => {
 
+    // Function the button will perform upon click
     const windowRefresh = () => {
         window.location.reload(false);
     }

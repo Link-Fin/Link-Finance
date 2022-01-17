@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './buttonBackToTop.css';
 import Button from '@mui/material/Button';
-import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded';
 import ArrowCircleUpTwoToneIcon from '@mui/icons-material/ArrowCircleUpTwoTone';
 
 const BackToTopButton = () => {
     const [isVisible, setVisible] = useState(false)
 
+    // setVisible if else statement to determine if the user is down far enough in the page where a button to get to the top would be necessary
     const checkLocation = () => {
-        if (window.pageYOffset > 200) {
+        if (window.pageYOffset > 250) {
             setVisible(true);
         }
         else {
@@ -16,6 +16,7 @@ const BackToTopButton = () => {
         }
     }
 
+    // Function the button will perform upon click
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -23,6 +24,7 @@ const BackToTopButton = () => {
         })
     }
 
+    // Used to listen for scroll events by the user and using checkLocation to determine if it passes the threshold for displaying the back to top button
     useEffect(() => {
         window.addEventListener('scroll', checkLocation);
         return () => {
@@ -30,6 +32,7 @@ const BackToTopButton = () => {
         }
     }, [])
 
+    // Ternary operator used to determine whether the button should be displayed on the screen or not depending on the user's location on the page
     return (
         <div className='backToTopButton'>
             {

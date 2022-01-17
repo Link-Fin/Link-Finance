@@ -2,10 +2,11 @@ import React from 'react'
 import {CardContent, CardMedia, Typography, Card} from '@mui/material';
 import './coin.css';
 
+// Create the card which will hold the coin information such as the chart, the current price and the all time high
 const coin = ({ name, image, currentPrice, allTimeHigh }) => {
     return (
         <div className='usableBackground'>
-            <Card sx={{ maxWidth: 300 }}>
+            <Card className="coinCards" sx={{ maxWidth: 300 }}>
                 <CardMedia
                     component="img"
                     height="100"

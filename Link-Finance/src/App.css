@@ -14,10 +14,12 @@
 
 .coinList {
   display: grid;
-  padding-top: 48px;
+  padding-top: 72px;
+  margin-right: 10%;
+  margin-left: 10%;
 }
 @media screen {
   .coinList{
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
