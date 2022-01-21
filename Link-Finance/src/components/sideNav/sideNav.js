@@ -8,6 +8,7 @@ import CandlestickChartOutlinedIcon from '@mui/icons-material/CandlestickChartOu
 import PaidIcon from '@mui/icons-material/Paid';
 import InfoIcon from '@mui/icons-material/Info';
 import './sideNav.css';
+import Logo from '../../Images/logo.png';
 
 const drawerWidth = 240;
 
@@ -28,7 +29,9 @@ function SideNav() {
                 variant="permanent"
                 anchor="left"
             >
-                <header className='websiteTitle' style={{ fontSize: '32px', paddingTop: '2%', paddingBottom: '2%', color: 'white'}}>Link Finance</header>
+                <center><img className="logo" src={Logo}></img></center>
+
+                {/* <header className='websiteTitle' style={{ fontSize: '32px', paddingTop: '2%', paddingBottom: '2%', color: 'white'}}>Link Finance</header> */}
                 <Divider />
                 <List className="sideNavList" style={{ color: 'white' }}>
                     <ListItem button key={'Home'}>

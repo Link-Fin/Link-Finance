@@ -3,7 +3,7 @@ import axios from 'axios'
 import './App.css';
 import SideNav from './components/sideNav/sideNav'
 import Coin from './components/coins/coin'
-import ButtonBacktoTop from './components/buttonBackToTop/buttonBackToTop';
+import ButtonBackToTop from './components/buttonBackToTop/buttonBackToTop';
 import ButtonRefresh from './components/buttonRefresh/buttonRefresh'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 
   // Gather information from API for the top 3 coins based on their market capitalization
   useEffect(() => {
-    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=250&page=1&sparkline=false')
+    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=3&page=1&sparkline=false')
       .then(res => {
         setTopThreeCoins(res.data);
       }).catch(error => alert(error))
@@ -34,7 +34,7 @@ function App() {
           )
         })}
       </div>
-      <ButtonBacktoTop />
+      <ButtonBackToTop />
       <ButtonRefresh />
     </div>
   );
