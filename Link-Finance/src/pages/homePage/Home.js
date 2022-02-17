@@ -3,18 +3,16 @@ import axios from 'axios'
 import './Home.css';
 import SideNav from '../../components/sideNav/sideNav'
 import Coin from '../../components/coins/coin'
+import NewsArticle from '../../components/newsArticle/newsArticle'
 import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
 import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh'
 
 function Home() {
-  const finnhub = require('finnhub');
-
-  const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-  api_key.apiKey = "c86s93qad3ib8jk17260" // Replace this
-  const finnhubClient = new finnhub.DefaultApi()
+  var articleCounter = 0;
 
   const [topThreeCoins, setTopThreeCoins] = useState([])
-  const [topThreeStocks, setTopThreeStocks] = useState([])
+  // const [topThreeStocks, setTopThreeStocks] = useState([])
+  const [latestArticles, setLatestArticles] = useState([])
 
   // Gather information from API for the top 3 coins based on their market capitalization
   useEffect(() => {
@@ -24,21 +22,19 @@ function Home() {
       }).catch(error => alert(error))
   }, []);
 
-  finnhubClient.symbolSearch('S&P', (error, data, response) => {
-    console.log(data)
-  });
+  useEffect(() => {
+    const finnhub = require('finnhub');
+    const api_key = finnhub.ApiClient.instance.authentications['api_key'];
+    api_key.apiKey = "c86s93qad3ib8jk17260"
+    const finnhubClient = new finnhub.DefaultApi()
 
-  finnhubClient.quote("^GSPC", (error, data, response) => {
-    if (error) {
-      console.error(error);
-    } else {
-      console.log(data)
-    }
-  });
+    finnhubClient.marketNews("general", {}, (error, data, response) => {
+      setLatestArticles(data);
+      console.log(data);
+    })
+  }, []);
 
-  finnhubClient.marketNews("general", {}, (error, data, response) => {
-    console.log(data)
-  });
+  articleCounter = 0;
 
   // Return HTML to display the side navigation, coins, and buttons that refresh the page and send the page back to the top
   return (
@@ -57,17 +53,25 @@ function Home() {
           )
         })}
       </div>
-      <div className='newsArticles'>
-        {topThreeCoins.map(coin => {
-          return (
-            <Coin
-              key={coin.id}
-              name={coin.name}
-              image={coin.image}
-              currentPrice={coin.current_price}
-              allTimeHigh={coin.ath}
-            />
-          )
+      <div className='NewsArticle'>
+        {latestArticles.map(article => {
+          if (articleCounter++ < 16) {
+            if (article.headline[0] === ':') {
+              var tempHeadline = article.headline.slice(2, article.headline.length);
+              article.headline = tempHeadline;
+            }
+
+            return (
+              <NewsArticle
+                headline={article.headline}
+                summary={article.summary}
+                url={article.url}
+              />
+            )
+          }
+          else {
+            return (<div />)
+          }
         })}
       </div>
       <ButtonBackToTop />

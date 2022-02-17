@@ -1,0 +1,12 @@
+.usableBackground {
+    margin-left: 240px;
+    margin-top: 10px;
+}
+
+.newsCards:hover {
+    transform: scale3d(1.1, 1.1, 1)
+}
+
+.articlesList {
+    background-color: black;
+}

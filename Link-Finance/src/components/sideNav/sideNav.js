@@ -28,7 +28,7 @@ function SideNav() {
                 variant="permanent"
                 anchor="left"
             >
-                <center><img className="logo" src={Logo}></img></center>
+                <center><img className="logo" src={Logo} alt="Unable to load"></img></center>
                 
                 <Divider />
 
