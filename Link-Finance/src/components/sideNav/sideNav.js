@@ -30,9 +30,9 @@ function SideNav() {
                 anchor="left"
             >
                 <center><img className="logo" src={Logo}></img></center>
-
-                {/* <header className='websiteTitle' style={{ fontSize: '32px', paddingTop: '2%', paddingBottom: '2%', color: 'white'}}>Link Finance</header> */}
+                
                 <Divider />
+
                 <List className="sideNavList" style={{ color: 'white' }}>
                     <ListItem button key={'Home'}>
                         <ListItemIcon>
@@ -40,18 +40,21 @@ function SideNav() {
                         </ListItemIcon>
                         <ListItemText primary={'Home'} />
                     </ListItem>
+
                     <ListItem button key={'Crypto Currency'}>
                         <ListItemIcon>
                             <PaidIcon style={{ color: 'orange' }} />
                         </ListItemIcon>
                         <ListItemText primary={'Crypto Currency'} />
                     </ListItem>
+
                     <ListItem button key={'Stocks'}>
                         <ListItemIcon>
                             <CandlestickChartOutlinedIcon style={{ color: 'green' }} />
                         </ListItemIcon>
                         <ListItemText primary={'Stocks'} />
                     </ListItem>
+
                     <ListItem button key={'About Us'}>
                         <ListItemIcon>
                             <InfoIcon style={{ color: 'black' }} />
@@ -59,6 +62,7 @@ function SideNav() {
                         <ListItemText primary={'About Us'} />
                     </ListItem>
                 </List>
+
             </Drawer>
         </div>
     );

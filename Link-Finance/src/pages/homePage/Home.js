@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import './App.css';
-import SideNav from './components/sideNav/sideNav'
-import Coin from './components/coins/coin'
-import ButtonBackToTop from './components/buttonBackToTop/buttonBackToTop';
-import ButtonRefresh from './components/buttonRefresh/buttonRefresh'
+import './Home.css';
+import SideNav from '../../components/sideNav/sideNav'
+import Coin from '../../components/coins/coin'
+import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
+import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh'
 
 function App() {
   const [topThreeCoins, setTopThreeCoins] = useState([])
