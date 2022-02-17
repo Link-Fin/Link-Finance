@@ -36,13 +36,28 @@ function Home() {
     }
   });
 
-  
+  finnhubClient.marketNews("general", {}, (error, data, response) => {
+    console.log(data)
+  });
 
   // Return HTML to display the side navigation, coins, and buttons that refresh the page and send the page back to the top
   return (
     <div className='background'>
       <SideNav />
       <div className='coinList'>
+        {topThreeCoins.map(coin => {
+          return (
+            <Coin
+              key={coin.id}
+              name={coin.name}
+              image={coin.image}
+              currentPrice={coin.current_price}
+              allTimeHigh={coin.ath}
+            />
+          )
+        })}
+      </div>
+      <div className='newsArticles'>
         {topThreeCoins.map(coin => {
           return (
             <Coin
