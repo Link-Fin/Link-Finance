@@ -1,6 +1,5 @@
 import React from 'react';
 import { Drawer, ListItem, List, ListItemText } from '@mui/material';
-import Styled from 'styled-components';
 import Divider from '@mui/material/Divider';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';

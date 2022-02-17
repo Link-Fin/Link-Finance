@@ -6,8 +6,15 @@ import Coin from '../../components/coins/coin'
 import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
 import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh'
 
-function App() {
+function Home() {
+  const finnhub = require('finnhub');
+
+  const api_key = finnhub.ApiClient.instance.authentications['api_key'];
+  api_key.apiKey = "c86s93qad3ib8jk17260" // Replace this
+  const finnhubClient = new finnhub.DefaultApi()
+
   const [topThreeCoins, setTopThreeCoins] = useState([])
+  const [topThreeStocks, setTopThreeStocks] = useState([])
 
   // Gather information from API for the top 3 coins based on their market capitalization
   useEffect(() => {
@@ -16,6 +23,20 @@ function App() {
         setTopThreeCoins(res.data);
       }).catch(error => alert(error))
   }, []);
+
+  finnhubClient.symbolSearch('S&P', (error, data, response) => {
+    console.log(data)
+  });
+
+  finnhubClient.quote("^GSPC", (error, data, response) => {
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(data)
+    }
+  });
+
+  
 
   // Return HTML to display the side navigation, coins, and buttons that refresh the page and send the page back to the top
   return (
@@ -40,4 +61,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
