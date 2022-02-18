@@ -7,9 +7,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import './newsArticle.css';
 
-const newsArticle = ({ headline, summary, url }) => {
+const NewsArticle = ({ articleKey, headline, summary, url }) => {
   return (
-    <div className='usableBackground'>
+    <div key={articleKey} className='usableBackground'>
       <div className='articleBackground'>
         <Accordion className='articlesList'>
           <AccordionSummary
@@ -31,4 +31,4 @@ const newsArticle = ({ headline, summary, url }) => {
   )
 }
 
-export default newsArticle
+export default NewsArticle

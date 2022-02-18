@@ -16,14 +16,6 @@ function Home() {
 
   // Gather information from API for the top 3 coins based on their market capitalization
   useEffect(() => {
-    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=3&page=1&sparkline=false')
-      .then(res => {
-        setTopThreeCoins(res.data);
-        console.log(res.data);
-      }).catch(error => alert(error))
-  }, []);
-
-  useEffect(() => {
     const finnhub = require('finnhub');
     const api_key = finnhub.ApiClient.instance.authentications['api_key'];
     api_key.apiKey = "c86s93qad3ib8jk17260"
@@ -31,8 +23,12 @@ function Home() {
 
     finnhubClient.marketNews("general", {}, (error, data, response) => {
       setLatestArticles(data);
-      console.log(data);
     })
+
+    axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=3&page=1&sparkline=false')
+      .then(res => {
+        setTopThreeCoins(res.data);
+      }).catch(error => alert(error))
   }, []);
 
   articleCounter = 0;
@@ -42,6 +38,7 @@ function Home() {
     <div className='background'>
       <SideNav />
       <div className='headings'>Top Three Cryptocurrencies</div>
+
       <div className='coinList'>
         {topThreeCoins.map(coin => {
           return (
@@ -55,9 +52,11 @@ function Home() {
           )
         })}
       </div>
+
       <div className='headings'>Latest Articles</div>
+
       <div className='NewsArticle'>
-        {latestArticles.map(article => {
+        {latestArticles.map((article, i) => {
           if (articleCounter++ < 16) {
             if (article.headline[0] === ':') {
               var tempHeadline = article.headline.slice(2, article.headline.length);
@@ -69,18 +68,20 @@ function Home() {
 
             return (
               <NewsArticle
-                key={articleCounter}
+                key={i}
+                articleKey={article.key}
                 headline={article.headline}
                 summary={article.summary}
                 url={article.url}
               />
             )
           }
-          else {
-            return (<div />)
+          else{
+            return(null)
           }
         })}
       </div>
+
       <ButtonBackToTop />
       <ButtonRefresh />
     </div>
