@@ -10,7 +10,7 @@ const ButtonRefresh = () => {
     }
 
     return (
-        <Button startIcon={<RefreshIcon style={{fontSize: '36px'}}/>} style={{ position: 'fixed', top: '0px', left: '240px', }} onClick={windowRefresh}/>
+        <Button className='refreshButton' startIcon={<RefreshIcon style={{ fontSize: '36px' }} />} style={{ position: 'fixed', top: '0rem', right: '0rem', }} onClick={windowRefresh} />
     )
 }
 
