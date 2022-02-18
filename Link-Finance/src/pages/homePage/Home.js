@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import './Home.css';
-import SideNav from '../../components/sideNav/sideNav'
-import Coin from '../../components/coins/coin'
-import NewsArticle from '../../components/newsArticle/newsArticle'
+import SideNav from '../../components/sideNav/sideNav';
+import Coin from '../../components/coins/coin';
+import NewsArticle from '../../components/newsArticle/newsArticle';
 import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
-import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh'
+import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh';
 
 function Home() {
-  var articleCounter = 0;
+  let articleCounter = 0;
 
   const [topThreeCoins, setTopThreeCoins] = useState([])
   // const [topThreeStocks, setTopThreeStocks] = useState([])
@@ -19,6 +19,7 @@ function Home() {
     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=3&page=1&sparkline=false')
       .then(res => {
         setTopThreeCoins(res.data);
+        console.log(res.data);
       }).catch(error => alert(error))
   }, []);
 
@@ -40,6 +41,7 @@ function Home() {
   return (
     <div className='background'>
       <SideNav />
+      <div className='headings'>Top Three Cryptocurrencies</div>
       <div className='coinList'>
         {topThreeCoins.map(coin => {
           return (
@@ -53,6 +55,7 @@ function Home() {
           )
         })}
       </div>
+      <div className='headings'>Latest Articles</div>
       <div className='NewsArticle'>
         {latestArticles.map(article => {
           if (articleCounter++ < 16) {
@@ -60,9 +63,13 @@ function Home() {
               var tempHeadline = article.headline.slice(2, article.headline.length);
               article.headline = tempHeadline;
             }
+            if (article.summary === '') {
+              article.summary = "Summary Not Available";
+            }
 
             return (
               <NewsArticle
+                key={articleCounter}
                 headline={article.headline}
                 summary={article.summary}
                 url={article.url}

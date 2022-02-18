@@ -1,12 +1,12 @@
 .usableBackground {
     margin-left: 240px;
-    margin-top: 10px;
+    padding-bottom: 25px;
 }
 
-.newsCards:hover {
-    transform: scale3d(1.1, 1.1, 1)
+.articleBackground {
+    padding-top: 25px;
 }
 
 .articlesList {
-    background-color: black;
+    background: rgb(183, 198, 214) !important;
 }

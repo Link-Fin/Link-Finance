@@ -7,17 +7,34 @@
   z-index: -1;
 }
 
+.headings {
+  text-align: left;
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  padding-left: 27rem;
+  padding-top: 5rem;
+}
+
 .App-logo {
-  top: 5px;
-  left: 5px;
+  top: 1rem;
+  left: 1rem;
 }
 
 .coinList {
   display: grid;
-  padding-top: 72px;
-  margin-right: 10%;
-  margin-left: 10%;
+  padding-top: 5rem;
+  padding-right: 15rem;
+  padding-left: 20rem;
 }
+
+.NewsArticle {
+  display: grid;
+  padding-top: 5rem;
+  padding-right: 7.5rem;
+  padding-left: 12rem;
+}
+
 @media screen {
   .coinList{
     grid-template-columns: repeat(3, 1fr);
