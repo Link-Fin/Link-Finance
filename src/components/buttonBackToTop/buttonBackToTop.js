@@ -8,7 +8,7 @@ const BackToTopButton = () => {
 
     // setVisible if else statement to determine if the user is down far enough in the page where a button to get to the top would be necessary
     const checkLocation = () => {
-        if (window.pageYOffset > 250) {
+        if (window.pageYOffset > 200) {
             setVisible(true);
         }
         else {
@@ -36,9 +36,9 @@ const BackToTopButton = () => {
     return (
         <div className='backToTopButton'>
             {
-                isVisible 
-                ? <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: '64px' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '100' }} onClick={scrollToTop} />
-                : <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: '64px' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '0' }} onClick={scrollToTop} />
+                isVisible
+                    ? <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: '64px', color: 'white' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '100' }} onClick={scrollToTop} />
+                    : <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: '64px' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '0' }} onClick={scrollToTop} />
             }
         </div>
     )

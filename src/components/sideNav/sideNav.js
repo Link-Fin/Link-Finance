@@ -8,6 +8,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import InfoIcon from '@mui/icons-material/Info';
 import './sideNav.css';
 import Logo from '../../Images/logo.png';
+import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh'
 
 const drawerWidth = 240;
 
@@ -22,20 +23,20 @@ function SideNav() {
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
                         boxSizing: 'border-box',
-                        backgroundColor: '#3D3176',
+                        backgroundColor: '#181A20',
                     },
                 }}
                 variant="permanent"
                 anchor="left"
             >
-                <center><img className="logo" src={Logo} alt="Unable to load"></img></center>
-                
+                <center><img className="logo" src={Logo} z-index='100' alt="Unable to load"></img></center>
+
                 <Divider />
 
                 <List className="sideNavList" style={{ color: 'white' }}>
                     <ListItem button key={'Home'}>
                         <ListItemIcon>
-                            <HomeIcon style={{ color: 'blue' }} />
+                            <HomeIcon style={{ color: 'white' }} />
                         </ListItemIcon>
                         <ListItemText primary={'Home'} />
                     </ListItem>
@@ -44,7 +45,7 @@ function SideNav() {
                         <ListItemIcon>
                             <PaidIcon style={{ color: 'orange' }} />
                         </ListItemIcon>
-                        <ListItemText primary={'Crypto Currency'} />
+                        <ListItemText type='body2' primary={'Crypto Currency'} />
                     </ListItem>
 
                     <ListItem button key={'Stocks'}>
@@ -56,9 +57,12 @@ function SideNav() {
 
                     <ListItem button key={'About Us'}>
                         <ListItemIcon>
-                            <InfoIcon style={{ color: 'black' }} />
+                            <InfoIcon style={{ color: 'silver', position: 'bottom' }} />
                         </ListItemIcon>
                         <ListItemText primary={'About Us'} />
+                    </ListItem>
+                    <ListItem key={'Refresh'}>
+                        <ButtonRefresh />
                     </ListItem>
                 </List>
 

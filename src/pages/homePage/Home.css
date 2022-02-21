@@ -1,8 +1,6 @@
 .background {
   text-align: center;
-  background: radial-gradient(ellipse at top right, #ad3636, transparent),
-              radial-gradient(ellipse at bottom left, #555cb1, transparent),
-              radial-gradient(ellipse at center, rgb(255, 136, 0), transparent 40%);
+  background: #1B1F22;
   min-height: 100vh;
   z-index: -1;
 }
@@ -14,6 +12,7 @@
   font-weight: bold;
   padding-left: 27rem;
   padding-top: 5rem;
+  color: white;
 }
 
 .App-logo {
@@ -23,14 +22,13 @@
 
 .coinList {
   display: grid;
-  padding-top: 5rem;
+  padding-top: 2rem;
   padding-right: 15rem;
   padding-left: 20rem;
 }
 
 .NewsArticle {
   display: grid;
-  padding-top: 5rem;
   padding-right: 7.5rem;
   padding-left: 12rem;
 }

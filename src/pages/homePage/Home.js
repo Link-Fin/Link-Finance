@@ -5,7 +5,6 @@ import SideNav from '../../components/sideNav/sideNav';
 import Coin from '../../components/coins/coin';
 import NewsArticle from '../../components/newsArticle/newsArticle';
 import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
-import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh';
 
 function Home() {
   let articleCounter = 0;
@@ -15,6 +14,7 @@ function Home() {
   const [latestArticles, setLatestArticles] = useState([])
 
   // Gather information from API for the top 3 coins based on their market capitalization
+  // Gather information regarding latest news articles
   useEffect(() => {
     const finnhub = require('finnhub');
     const api_key = finnhub.ApiClient.instance.authentications['api_key'];
@@ -76,14 +76,13 @@ function Home() {
               />
             )
           }
-          else{
-            return(null)
+          else {
+            return (null)
           }
         })}
       </div>
 
       <ButtonBackToTop />
-      <ButtonRefresh />
     </div>
   );
 }
