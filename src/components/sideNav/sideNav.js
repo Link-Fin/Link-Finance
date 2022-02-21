@@ -8,7 +8,7 @@ import PaidIcon from '@mui/icons-material/Paid';
 import InfoIcon from '@mui/icons-material/Info';
 import './sideNav.css';
 import Logo from '../../Images/logo.png';
-import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh'
+import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh';
 
 const drawerWidth = 240;
 
@@ -36,28 +36,28 @@ function SideNav() {
                 <List className="sideNavList" style={{ color: 'white' }}>
                     <ListItem button key={'Home'}>
                         <ListItemIcon>
-                            <HomeIcon style={{ color: 'white' }} />
+                            <HomeIcon style={{ color: 'white', fontSize: '2.5rem' }} />
                         </ListItemIcon>
                         <ListItemText primary={'Home'} />
                     </ListItem>
 
                     <ListItem button key={'Crypto Currency'}>
                         <ListItemIcon>
-                            <PaidIcon style={{ color: 'orange' }} />
+                            <PaidIcon style={{ color: 'orange', fontSize: '2.5rem' }} />
                         </ListItemIcon>
                         <ListItemText type='body2' primary={'Crypto Currency'} />
                     </ListItem>
 
                     <ListItem button key={'Stocks'}>
                         <ListItemIcon>
-                            <CandlestickChartOutlinedIcon style={{ color: 'green' }} />
+                            <CandlestickChartOutlinedIcon style={{ color: 'lightGreen', fontSize: '2.5rem' }} />
                         </ListItemIcon>
                         <ListItemText primary={'Stocks'} />
                     </ListItem>
 
                     <ListItem button key={'About Us'}>
                         <ListItemIcon>
-                            <InfoIcon style={{ color: 'silver', position: 'bottom' }} />
+                            <InfoIcon style={{ color: '607d8b', fontSize: '2.5rem' }} />
                         </ListItemIcon>
                         <ListItemText primary={'About Us'} />
                     </ListItem>

@@ -10,15 +10,15 @@ function Home() {
   let articleCounter = 0;
 
   const [topThreeCoins, setTopThreeCoins] = useState([])
-  // const [topThreeStocks, setTopThreeStocks] = useState([])
+  const [globalMarketInfo, setGlobalMarketInfo] = useState([])
   const [latestArticles, setLatestArticles] = useState([])
 
   // Gather information from API for the top 3 coins based on their market capitalization
   // Gather information regarding latest news articles
   useEffect(() => {
     const finnhub = require('finnhub');
-    const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-    api_key.apiKey = "c86s93qad3ib8jk17260"
+    const apiKeyArticles = finnhub.ApiClient.instance.authentications['api_key'];
+    apiKeyArticles.apiKey = "c86s93qad3ib8jk17260"
     const finnhubClient = new finnhub.DefaultApi()
 
     finnhubClient.marketNews("general", {}, (error, data, response) => {
@@ -28,6 +28,14 @@ function Home() {
     axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=3&page=1&sparkline=false')
       .then(res => {
         setTopThreeCoins(res.data);
+      }).catch(error => alert(error))
+  }, []);
+
+  useEffect(() => {
+    axios.get('https://api.coingecko.com/api/v3/global')
+      .then(res => {
+        setGlobalMarketInfo(res.data);
+        console.log(res.data);
       }).catch(error => alert(error))
   }, []);
 

@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { CardContent, CardMedia, Typography, Card } from '@mui/material';
 import './coin.css';
 
 // Create the card which will hold the coin information such as the chart, the current price and the all time high
-const coin = ({ name, image, currentPrice, allTimeHigh }) => {
+function Coin({ name, image, currentPrice, allTimeHigh }) {
     let coinInfoURL = 'https://coinmarketcap.com/currencies/';
     coinInfoURL = coinInfoURL.concat(name);
+
+    useEffect(() => {
+        axios.get('https://api.coingecko.com/api/v3/coins/' + name.toLowerCase() + '/market_chart?vs_currency=cad&days=1')
+            .then(res => {
+                console.log(res.data);
+            }).catch(error => alert(error))
+    }, []);
 
     return (
         <a href={coinInfoURL} target='_blank' rel="noopener noreferrer" className='usableBackground'>
@@ -16,14 +24,14 @@ const coin = ({ name, image, currentPrice, allTimeHigh }) => {
                     image={image}
                     alt="Crypto"
                 />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">{name}</Typography>
-                    <Typography variant="body2" color="text.secondary">Current Price: ${currentPrice}</Typography>
-                    <Typography variant="body2" color="text.secondary">All Time High: ${allTimeHigh}</Typography>
+                <CardContent sx={{ backgroundColor: '#253344' }}>
+                    <Typography gutterBottom variant="h5" sx={{ color: 'white' }} component="div">{name}</Typography>
+                    <Typography variant="body2" sx={{ color: 'white' }} >Current Price: ${currentPrice}</Typography>
+                    <Typography variant="body2" sx={{ color: 'white' }} >All Time High: ${allTimeHigh}</Typography>
                 </CardContent>
             </Card>
         </a>
     )
 }
 
-export default coin
+export default Coin
