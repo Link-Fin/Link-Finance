@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Home.css';
-import SideNav from '../../components/sideNav/sideNav';
-import Coin from '../../components/coins/coin';
-import NewsArticle from '../../components/newsArticle/newsArticle';
-import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
+import '../homePage/Home.css';
+import SideNav from '../../sideNav/sideNav';
+import Coin from '../../coins/coin';
+import NewsArticle from '../../newsArticle/newsArticle';
+import ButtonBackToTop from '../../buttonBackToTop/buttonBackToTop';
 
 function Home() {
   let articleCounter = 0;
 
-  const [topThreeCoins, setTopThreeCoins] = useState([])
-  const [globalMarketInfo, setGlobalMarketInfo] = useState([])
-  const [latestArticles, setLatestArticles] = useState([])
+  const [topThreeCoins, setTopThreeCoins] = useState([]);
+  const [globalMarketInfo, setGlobalMarketInfo] = useState([]);
+  const [latestArticles, setLatestArticles] = useState([]);
 
   // Gather information from API for the top 3 coins based on their market capitalization
   // Gather information regarding latest news articles
   useEffect(() => {
     const finnhub = require('finnhub');
     const apiKeyArticles = finnhub.ApiClient.instance.authentications['api_key'];
-    apiKeyArticles.apiKey = "c86s93qad3ib8jk17260"
-    const finnhubClient = new finnhub.DefaultApi()
+    apiKeyArticles.apiKey = "c86s93qad3ib8jk17260";
+    const finnhubClient = new finnhub.DefaultApi();
 
     finnhubClient.marketNews("general", {}, (error, data, response) => {
       setLatestArticles(data);
@@ -31,6 +31,7 @@ function Home() {
       }).catch(error => alert(error))
   }, []);
 
+  // Gather information from API regarding global crypto market status
   useEffect(() => {
     axios.get('https://api.coingecko.com/api/v3/global')
       .then(res => {

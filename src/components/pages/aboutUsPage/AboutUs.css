@@ -1,0 +1,6 @@
+.background {
+    text-align: center;
+    background: #1c2837;
+    min-height: 100vh;
+    z-index: -1;
+  }
