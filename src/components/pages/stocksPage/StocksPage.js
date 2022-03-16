@@ -6,4 +6,4 @@ function StocksPage() {
   )
 }
 
-export default StocksPage
+export default StocksPage;

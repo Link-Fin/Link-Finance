@@ -46,7 +46,10 @@ function SideNav() {
                 >
                     <center><img className="logo" src={Logo} z-index='1' alt="Unable to load"></img></center>
 
-                    <Divider />
+                    <Divider sx={{
+                        backgroundColor: 'white',
+                    }}
+                    />
 
                     <List className="sideNavList" style={{ color: 'white' }}>
                         <Link className='links' to='/' onClick={() => history.push('/')}>

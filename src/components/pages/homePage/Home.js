@@ -29,16 +29,18 @@ function Home() {
       .then(res => {
         setTopThreeCoins(res.data);
       }).catch(error => alert(error))
-  }, []);
+  }, []
+  );
 
   // Gather information from API regarding global crypto market status
   useEffect(() => {
     axios.get('https://api.coingecko.com/api/v3/global')
       .then(res => {
         setGlobalMarketInfo(res.data);
-        console.log(res.data);
       }).catch(error => alert(error))
   }, []);
+
+  // console.log(globalMarketInfo.data);
 
   articleCounter = 0;
 
@@ -46,8 +48,8 @@ function Home() {
   return (
     <div className='background'>
       <SideNav />
+      <div type='text' className='marketDominance'>Insert Market Dominance</div>
       <div className='headings'>Top Three Cryptocurrencies</div>
-
       <div className='coinList'>
         {topThreeCoins.map(coin => {
           return (

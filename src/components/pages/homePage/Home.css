@@ -5,6 +5,15 @@
   z-index: -1;
 }
 
+.marketDominance {
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  padding-left: 15rem;
+  color: white;
+}
+
 .headings {
   text-align: left;
   font-family: "Nunito", sans-serif;
