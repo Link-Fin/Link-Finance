@@ -1,5 +1,5 @@
 import React from 'react';
-import Luka from '../../../Images/Luka.png';
+import Luka from '../../Images/Luka.png';
 import './AboutUs.css';
 
 function AboutUs() {

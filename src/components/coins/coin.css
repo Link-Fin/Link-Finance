@@ -1,8 +1,13 @@
 .usableBackground {
-    margin-left: 15rem;
+    margin-left: 12.5%;
+    text-decoration: none;
+}
+
+.coinRedirection {
     text-decoration: none;
 }
 
 .coinCards:hover {
     transform: scale3d(1.1, 1.1, 1)
+    
 }

@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './components/pages/homePage/Home';
-import AboutUs from './components/pages/aboutUsPage/AboutUs'
-import Stocks from './components/pages/stocksPage/StocksPage';
-import Crypto from './components/pages/cryptoPage/CryptoPage';
+import Home from './pages/homePage/Home';
+import AboutUs from './pages/aboutUsPage/AboutUs'
+import Stocks from './pages/stocksPage/StocksPage';
+import Crypto from './pages/cryptoPage/CryptoPage';
 import SideNav from './components/sideNav/sideNav';
 
 ReactDOM.render(

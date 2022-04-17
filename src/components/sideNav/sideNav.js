@@ -10,10 +10,10 @@ import './sideNav.css';
 import Logo from '../../Images/logo.png';
 import ButtonRefresh from '../../components/buttonRefresh/buttonRefresh';
 import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
-import Home from '../pages/homePage/Home.js';
-import AboutUs from '../pages/aboutUsPage/AboutUs.js';
-import CryptoPage from '../pages/cryptoPage/CryptoPage.js';
-import StocksPage from '../pages/stocksPage/StocksPage.js';
+import Home from '../../pages/homePage/Home.js';
+import AboutUs from '../../pages/aboutUsPage/AboutUs.js';
+import CryptoPage from '../../pages/cryptoPage/CryptoPage.js';
+import StocksPage from '../../pages/stocksPage/StocksPage.js';
 
 const drawerWidth = 240;
 
@@ -36,7 +36,7 @@ function SideNav() {
                         width: drawerWidth,
                         flexShrink: 0,
                         '& .MuiDrawer-paper': {
-                            width: drawerWidth,
+                            width: '12.5%',
                             boxSizing: 'border-box',
                             backgroundColor: '#181A20',
                         },
@@ -46,34 +46,31 @@ function SideNav() {
                 >
                     <center><img className="logo" src={Logo} z-index='1' alt="Unable to load"></img></center>
 
-                    <Divider sx={{
-                        backgroundColor: 'white',
-                    }}
-                    />
+                    <Divider sx={{ backgroundColor: 'white' }} />
 
                     <List className="sideNavList" style={{ color: 'white' }}>
                         <Link className='links' to='/' onClick={() => history.push('/')}>
                             <ListItem button key={'Home'}>
                                 <ListItemIcon>
-                                    <HomeIcon style={{ color: 'white', fontSize: '2.5rem' }} />
+                                    <HomeIcon style={{ color: 'white', fontSize: '250%' }} />
                                 </ListItemIcon>
-                                <ListItemText sx={{ fontSize: '2.5rem' }} primary={'Home'} />
+                                <ListItemText primary={'Home'} />
                             </ListItem>
                         </Link>
 
                         <Link className='links' to='/crypto' onClick={() => history.push('/crypto')}>
                             <ListItem button key={'Crypto Currency'}>
                                 <ListItemIcon>
-                                    <PaidIcon style={{ color: 'orange', fontSize: '2.5rem' }} />
+                                    <PaidIcon style={{ color: 'orange', fontSize: '250%' }} />
                                 </ListItemIcon>
-                                <ListItemText type='body2' primary={'Crypto Currency'} />
+                                <ListItemText primary={'Crypto Currency'} />
                             </ListItem>
                         </Link>
 
                         <Link className='links' to='/stocks' onClick={() => history.push('/stocks')}>
                             <ListItem button key={'Stocks'}>
                                 <ListItemIcon>
-                                    <CandlestickChartOutlinedIcon style={{ color: 'lightGreen', fontSize: '2.5rem' }} />
+                                    <CandlestickChartOutlinedIcon style={{ color: 'lightGreen', fontSize: '250%' }} />
                                 </ListItemIcon>
                                 <ListItemText primary={'Stocks'} />
                             </ListItem>
@@ -82,7 +79,7 @@ function SideNav() {
                         <Link className='links' to='/about' onClick={() => history.push('/about')}>
                             <ListItem button key={'About Us'} >
                                 <ListItemIcon>
-                                    <InfoIcon style={{ color: '607d8b', fontSize: '2.5rem' }} />
+                                    <InfoIcon style={{ color: '607d8b', fontSize: '250%' }} />
                                 </ListItemIcon>
                                 <ListItemText primary={'About Us'} />
                             </ListItem>

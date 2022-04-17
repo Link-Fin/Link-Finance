@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../homePage/Home.css';
-import SideNav from '../../sideNav/sideNav';
-import Coin from '../../coins/coin';
-import NewsArticle from '../../newsArticle/newsArticle';
-import ButtonBackToTop from '../../buttonBackToTop/buttonBackToTop';
+import './Home.css';
+import SideNav from '../../components/sideNav/sideNav';
+import Coin from '../../components/coins/coin';
+import NewsArticle from '../../components/newsArticle/newsArticle';
+import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
 
 function Home() {
   let articleCounter = 0;
@@ -29,8 +29,7 @@ function Home() {
       .then(res => {
         setTopThreeCoins(res.data);
       }).catch(error => alert(error))
-  }, []
-  );
+  }, []);
 
   // Gather information from API regarding global crypto market status
   useEffect(() => {
@@ -40,7 +39,7 @@ function Home() {
       }).catch(error => alert(error))
   }, []);
 
-  // console.log(globalMarketInfo.data);
+  console.log(globalMarketInfo.data);
 
   articleCounter = 0;
 
@@ -48,7 +47,7 @@ function Home() {
   return (
     <div className='background'>
       <SideNav />
-      <div type='text' className='marketDominance'>Insert Market Dominance</div>
+      <div type='text' className='marketDominance'>BTC: </div>
       <div className='headings'>Top Three Cryptocurrencies</div>
       <div className='coinList'>
         {topThreeCoins.map(coin => {
@@ -65,12 +64,11 @@ function Home() {
       </div>
 
       <div className='headings'>Latest Articles</div>
-
-      <div className='NewsArticle'>
+      <div className='newsArticle'>
         {latestArticles.map((article, i) => {
           if (articleCounter++ < 16) {
             if (article.headline[0] === ':') {
-              var tempHeadline = article.headline.slice(2, article.headline.length);
+              let tempHeadline = article.headline.slice(2, article.headline.length);
               article.headline = tempHeadline;
             }
             if (article.summary === '') {

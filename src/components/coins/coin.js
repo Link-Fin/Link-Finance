@@ -8,7 +8,7 @@ function Coin({ name, currentPrice, allTimeHigh }) {
     const [coinPricesAPI, setCoinPricesAPI] = useState([]);
 
     let coinInfoURL = 'https://coinmarketcap.com/currencies/';
-    coinInfoURL = coinInfoURL.concat(name);
+    coinInfoURL = coinInfoURL.concat(name.toLowerCase());
     var coinPrices = [];
     var index = 0;
     var numPoints = [];
@@ -29,6 +29,7 @@ function Coin({ name, currentPrice, allTimeHigh }) {
         const Chart = require('chart.js');
         const ctx = name + 'chart';
 
+        // eslint-disable-next-line
         const myChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -37,7 +38,7 @@ function Coin({ name, currentPrice, allTimeHigh }) {
                     label: '24 Hour Price',
                     data: coinPrices,
                     backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 255, 255, 1)',
                     ],
                     borderColor: [
                         'rgba(255, 255, 255, 1)',
@@ -45,36 +46,32 @@ function Coin({ name, currentPrice, allTimeHigh }) {
                     borderWidth: 1,
                     fill: false,
                 }],
-                options: {
-                    scales: {
-                        y: {
-                            type: 'linear',
-                            grace: '5%'
-                        },
-                        x: {
-                            ticks: {
-                                display: false
-                            }
-                        }
-                    }
-                },
             },
         });
-
-        index = 0;
     }
 
+    index = 0;
+
     return (
-        <a href={coinInfoURL} target='_blank' rel="noopener noreferrer" className='usableBackground'>
+        <div className='usableBackground'>
+
+            <button>1 Day</button>
+            <button>3 Days</button>
+            <button>1 Week</button>
+            <button>1 Month</button>
+            <button>1 Year</button>
+
             <canvas id={name + 'chart'} width="300" height="200" onLoad={loadChart()}></canvas>
-            <Card className="coinCards" sx={{ maxWidth: 300 }}>
-                <CardContent sx={{ backgroundColor: '#253344' }}>
-                    <Typography gutterBottom variant="h5" sx={{ color: 'white' }} component="div">{name}</Typography>
-                    <Typography variant="body2" sx={{ color: 'white' }}>Current Price: ${currentPrice}</Typography>
-                    <Typography variant="body2" sx={{ color: 'white' }}>All Time High: ${allTimeHigh}</Typography>
-                </CardContent>
-            </Card>
-        </a>
+            <a className='coinRedirection' href={coinInfoURL} target='_blank' rel="noopener noreferrer"> 
+                <Card className="coinCards" sx={{ maxWidth: '100%' }}>
+                    <CardContent sx={{ backgroundColor: '#253344' }}>
+                        <Typography gutterBottom variant="h5" sx={{ color: 'white' }} component="div">{name}</Typography>
+                        <Typography variant="body2" sx={{ color: 'white' }}>Current Price: ${currentPrice}</Typography>
+                        <Typography variant="body2" sx={{ color: 'white' }}>All Time High: ${allTimeHigh}</Typography>
+                    </CardContent>
+                </Card>
+            </a>
+        </div>
     )
 }
 
