@@ -1,14 +1,15 @@
 .background {
   text-align: center;
   background: #1c2837;
-  min-height: 100%;
+  min-height: 1rem;
   z-index: -1;
+  padding-left: 1rem;
 }
 
 .marketDominance {
   justify-content: center;
   font-family: "Nunito", sans-serif;
-  font-size: 100%;
+  font-size: 1rem;
   font-weight: bold;
   color: white;
 }
@@ -16,27 +17,29 @@
 .headings {
   text-align: left;
   font-family: "Nunito", sans-serif;
-  font-size: 200%;
+  font-size: 2rem;
   font-weight: bold;
-  padding-left: 16.25%;
-  padding-top: 2.5%;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  margin-right: 5rem;
   color: white;
 }
 
 .coinList {
   display: flex;
   justify-content: center;
-  padding-top: 1%;
+  padding-top: 1rem;
+  margin-right: 5rem;
+}
+
+@media screen {
+  .coinList {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .newsArticle {
   display: grid;
-  padding-right: 5%;
-  padding-left: 5%;
-}
-
-@media screen {
-  .coinList{
-    grid-template-columns: repeat(3, 1fr);
-  }
+  margin-right: 5rem;
 }

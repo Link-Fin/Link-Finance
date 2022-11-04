@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import './buttonBackToTop.css';
 import Button from '@mui/material/Button';
 import ArrowCircleUpTwoToneIcon from '@mui/icons-material/ArrowCircleUpTwoTone';
 
@@ -37,8 +36,8 @@ const BackToTopButton = () => {
         <div className='backToTopButton'>
             {
                 isVisible
-                    ? <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: '64px', color: 'white' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '100' }} onClick={scrollToTop} />
-                    : <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: '64px' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '0' }} onClick={scrollToTop} />
+                    ? <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: 'xx-large', color: 'white' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '100' }} onClick={scrollToTop} />
+                    : <Button startIcon={<ArrowCircleUpTwoToneIcon style={{ fontSize: 'xx-large' }} />} style={{ position: 'fixed', bottom: '0px', right: '0px', opacity: '0' }} onClick={scrollToTop} />
             }
         </div>
     )

@@ -1,17 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Home.css';
-import SideNav from '../../components/sideNav/sideNav';
+import NavBar from '../../components/navBar/navBar';
 import Coin from '../../components/coins/coin';
 import NewsArticle from '../../components/newsArticle/newsArticle';
 import ButtonBackToTop from '../../components/buttonBackToTop/buttonBackToTop';
 
-function Home() {
+const Home = () => {
   let articleCounter = 0;
 
+  const [width, setWindowWidth] = useState(0);
   const [topThreeCoins, setTopThreeCoins] = useState([]);
   const [globalMarketInfo, setGlobalMarketInfo] = useState([]);
   const [latestArticles, setLatestArticles] = useState([]);
+
+  useEffect(() => {
+    updateDimensions();
+
+    window.addEventListener("resize", updateDimensions);
+    return () =>
+      window.removeEventListener("resize", updateDimensions);
+  }, [])
+
+  const updateDimensions = () => {
+    const width = window.innerWidth
+    setWindowWidth(width)
+  }
 
   // Gather information from API for the top 3 coins based on their market capitalization
   // Gather information regarding latest news articles
@@ -45,11 +59,11 @@ function Home() {
 
   // Return HTML to display the side navigation, coins, and buttons that refresh the page and send the page back to the top
   return (
-    <div className='background'>
-      <SideNav />
+    <div className='background' width={width}>
+      <NavBar />
       <div type='text' className='marketDominance'>BTC: </div>
       <div className='headings'>Top Three Cryptocurrencies</div>
-      <div className='coinList'>
+      <div className='coinList' width={width}>
         {topThreeCoins.map(coin => {
           return (
             <Coin

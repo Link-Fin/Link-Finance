@@ -5,6 +5,7 @@ import './coin.css';
 
 // Create the card which will hold the coin information such as the chart, the current price and the all time high
 function Coin({ name, currentPrice, allTimeHigh }) {
+    const [width, setWindowWidth] = useState(0);
     const [coinPricesAPI, setCoinPricesAPI] = useState([]);
 
     let coinInfoURL = 'https://coinmarketcap.com/currencies/';
@@ -12,6 +13,19 @@ function Coin({ name, currentPrice, allTimeHigh }) {
     var coinPrices = [];
     var index = 0;
     var numPoints = [];
+
+    useEffect(() => {
+        updateDimensions();
+
+        window.addEventListener("resize", updateDimensions);
+        return () =>
+            window.removeEventListener("resize", updateDimensions);
+    }, [])
+
+    const updateDimensions = () => {
+        const width = window.innerWidth
+        setWindowWidth(width)
+    }
 
     useEffect(() => {
         axios.get('https://api.coingecko.com/api/v3/coins/' + name.toLowerCase() + '/market_chart?vs_currency=cad&days=1')
@@ -53,7 +67,7 @@ function Coin({ name, currentPrice, allTimeHigh }) {
     index = 0;
 
     return (
-        <div className='usableBackground'>
+        <div className='usableBackground' width={width}>
 
             <button>1 Day</button>
             <button>3 Days</button>
@@ -61,9 +75,9 @@ function Coin({ name, currentPrice, allTimeHigh }) {
             <button>1 Month</button>
             <button>1 Year</button>
 
-            <canvas id={name + 'chart'} width="300" height="200" onLoad={loadChart()}></canvas>
-            <a className='coinRedirection' href={coinInfoURL} target='_blank' rel="noopener noreferrer"> 
-                <Card className="coinCards" sx={{ maxWidth: '100%' }}>
+            <canvas id={name + 'chart'} width="3rem" height="2rem" onLoad={loadChart()}></canvas>
+            <a className='coinRedirection' href={coinInfoURL} target='_blank' rel="noopener noreferrer">
+                <Card className="coinCards" sx={{ maxWidth: width }}>
                     <CardContent sx={{ backgroundColor: '#253344' }}>
                         <Typography gutterBottom variant="h5" sx={{ color: 'white' }} component="div">{name}</Typography>
                         <Typography variant="body2" sx={{ color: 'white' }}>Current Price: ${currentPrice}</Typography>

@@ -1,6 +1,6 @@
 .usableBackground {
-    margin-left: 12.5%;
     text-decoration: none;
+    padding-left: 2rem;
 }
 
 .coinRedirection {
@@ -9,5 +9,4 @@
 
 .coinCards:hover {
     transform: scale3d(1.1, 1.1, 1)
-    
 }

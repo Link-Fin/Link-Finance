@@ -6,13 +6,11 @@ import Home from './pages/homePage/Home';
 import AboutUs from './pages/aboutUsPage/AboutUs'
 import Stocks from './pages/stocksPage/StocksPage';
 import Crypto from './pages/cryptoPage/CryptoPage';
-import SideNav from './components/sideNav/sideNav';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <div>
-        <SideNav />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/stocks" component={Stocks} />
